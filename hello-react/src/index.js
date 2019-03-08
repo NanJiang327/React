@@ -2,23 +2,23 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
-class Example extends Component {
-  render () {
-    const className = 'header'
-    const goodWord = <strong> is good</strong>
-    const isGoodWord = true
-    const badWord = <span> is not good</span>
-    return (
-      <div>
-        <h1 className={className}>React 小书</h1>
-        <label htmlFor="male">Male</label>
-        <h2>
-          React is {isGoodWord ? goodWord : badWord }
-        </h2>
-      </div>
-    )
-  }
-}
+// class Example extends Component {
+//   render () {
+//     const className = 'header'
+//     const goodWord = <strong> is good</strong>
+//     const isGoodWord = true
+//     const badWord = <span> is not good</span>
+//     return (
+//       <div>
+//         <h1 className={className}>React 小书</h1>
+//         <label htmlFor="male">Male</label>
+//         <h2>
+//           React is {isGoodWord ? goodWord : badWord }
+//         </h2>
+//       </div>
+//     )
+//   }
+// }
 
 class LikeButton extends Component {
   static defaultProps = {
@@ -76,13 +76,57 @@ class User extends Component {
   }
 }
 
+
+class Clock extends Component {
+  constructor () {
+    super ()
+    this.state = {
+      date: new Date()
+    }
+  }
+
+  componentWillMount () {
+    this.timer = setInterval(() => {
+      this.setState({ date: new Date() })
+    }, 1000)
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.timer)
+  }
+
+  render () {
+    return (
+      <div>
+        <h1>
+          <p>现在的时间是</p>
+          {this.state.date.toLocaleTimeString()}
+        </h1>
+      </div>
+    )
+  }
+}
+
 class Index extends Component {
+  constructor () {
+    super()
+    this.state = { isShowClock: true }
+  }
+
+  handleShowOrHide () {
+    this.setState({
+      isShowClock: !this.state.isShowClock
+    })
+  }
+
   render () {
     return (
       <div>
         <LikeButton wordings={{likedText: '已赞', unlikedText: '赞'}} />
         <LikeButton onClick={() => console.log('Click on like button!')} />
         {users.map((user, i) => <User key={i} user={user} />)}
+        {this.state.isShowClock ? <Clock /> : null}
+        <button onClick={this.handleShowOrHide.bind(this)}>显示或者隐藏时钟</button>
       </div>
     )
   }
