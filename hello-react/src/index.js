@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import Game from './tic-tac'
 import './index.css'
 
 // class Example extends Component {
@@ -127,6 +128,8 @@ class Index extends Component {
         {users.map((user, i) => <User key={i} user={user} />)}
         {this.state.isShowClock ? <Clock /> : null}
         <button onClick={this.handleShowOrHide.bind(this)}>显示或者隐藏时钟</button>
+        <p>Tic tac</p>
+        <Game />
       </div>
     )
   }
