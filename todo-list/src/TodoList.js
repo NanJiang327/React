@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import TodoItem from './index1'
+import TodoItem from './TodoItem'
+import axios from 'axios'
 
 class TodoList extends Component {
 
@@ -50,6 +51,42 @@ class TodoList extends Component {
       })
     )
   }
+
+  // 组件被挂载之后 调用的函数
+  componentDidMount () {
+   // console.log('Component did mount')
+   axios.get('https://www.easy-mock.com/mock/5c0899563b84ee19198848a6/nfpdf/todolist')
+   .then((res) => { 
+    //  this.setState({
+    //   list: [...res.data.data.articles]
+    //  })
+    console.log(res) 
+    this.setState({
+      list: [...res.data.data]
+    })
+   }).catch(() => {
+     alert('error!')
+   })
+  }
+
+  // 组件被挂载之前 调用的函数
+  componentWillMount () {
+   // console.log('Component will mount')
+  }
+
+  // 组件更新之前调用的函数
+  shouldComponentUpdate () {
+    //console.log('should component upadte')
+    return true
+  }
+
+  // 组件更新前, 但在shouldComponentUpadate之后
+  // 如果shouldComponent返回true它才执行, 如果false则不执行
+  componentWillUpdate () {
+   // console.log('component will update')
+  }
+
+
 
   render() {
     return (
