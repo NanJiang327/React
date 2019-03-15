@@ -4,11 +4,12 @@ import { CSSTransition } from 'react-transition-group'
 import  * as actionCreators  from './store/actionCreators'
 import  { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import * as loginActionCreators  from '../../pages/login/store/actionCreators'
 
 class Header extends Component {
 
   getListArea() {
-    const { focused, list, page, mouseIn, totalPage, handleMouseEnter, handleMouseLeave, handleRefresh } = this.props
+    const { focused, list, page, mouseIn, totalPage, handleMouseEnter, handleMouseLeave, handleRefresh, loginOut } = this.props
     const newList = list.toJS()
     const pageList = []
 
@@ -46,7 +47,7 @@ class Header extends Component {
   }
 
   render () {
-    const { focused, hanldInputClick, handleInputBlur, list } = this.props
+    const { focused, hanldInputClick, handleInputBlur, list, login, logout } = this.props
     return (
       <HeaderWrapper>
             <Link to='/'>
@@ -55,7 +56,11 @@ class Header extends Component {
             <Nav>
               <NavItem className='left'>首页</NavItem>
               <NavItem className='left'>下载App</NavItem>
-              <NavItem className='right'>登录</NavItem>
+              {
+                login ? 
+                <NavItem className='right' onClick={logout}>退出</NavItem> : 
+                <Link to='/login'><NavItem className='right'>登录</NavItem></Link>
+              }
               <NavItem className='right'>
                 <i className='iconfont'>&#xe636;</i>
               </NavItem>
@@ -77,10 +82,12 @@ class Header extends Component {
               </SearchWrapper>
             </Nav>
             <Addtion>
-              <Button className='new'>
-                <i className='iconfont'>&#xe617;</i>
-                New Article
-              </Button>
+              <Link to='/post'>
+                <Button className='new'>
+                  <i className='iconfont'>&#xe617;</i>
+                  Post
+                </Button>
+              </Link>
               <Button className='reg'>Register</Button>
             </Addtion>
         </HeaderWrapper>
@@ -95,6 +102,7 @@ const mapStateToProps = (state) => {
     page: state.getIn(['header', 'page']),
     mouseIn: state.getIn(['header', 'mouseIn']),
     totalPage: state.getIn(['header', 'totalPage']),
+    login: state.getIn(['login', 'login']),
   }
 }
 
@@ -122,6 +130,9 @@ const mapDispatchToProps = (dispatch) => {
       } else {
         dispatch(actionCreators.refresh(1))
       }
+    },
+    loginOut () {
+      dispatch(loginActionCreators.logout())
     }
   }
 }
