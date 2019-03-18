@@ -19,8 +19,8 @@ const changeHomeData = (state, action) => {
 
 const addArticleList = (state, action) => {
 	return state.merge({
-		'articleList': state.get('articleList').concat(action.list),
-		'articlePage': action.nextPage
+		articleList : state.get('articleList').concat(action.list),
+		articlePage : action.nextPage
 	});
 };
 

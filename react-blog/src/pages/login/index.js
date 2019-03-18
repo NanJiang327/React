@@ -11,8 +11,8 @@ class Login extends PureComponent {
       return (
         <LoginWrapper>
           <LoginBox>
-            <Input placeholder='Username' innerRef={(input) => {this.username = input}} />
-            <Input placeholder='Password' innerRef={(input) => {this.password = input}} type='password'/>
+            <Input placeholder='Username' ref={(input) => {this.username = input}} />
+            <Input placeholder='Password' ref={(input) => {this.password = input}} type='password'/>
             <Button onClick={() => {this.props.login(this.username,this.password)}}>Log in</Button>
           </LoginBox>
         </LoginWrapper>
@@ -23,7 +23,6 @@ class Login extends PureComponent {
   }
 
 }
-
 
 const mapState = (state) => ({
   loginStatus: state.getIn(['login', 'login'])

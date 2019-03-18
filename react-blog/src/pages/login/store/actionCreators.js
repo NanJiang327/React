@@ -3,22 +3,27 @@ import * as constants from './constants'
 
 const getLogin = () => ({
   type: constants.CHANGE_LOGIN,
-  value: true
 })
 
 export const logout = () => ({
   type: constants.LOGOUT,
-  value: false
 })
 
 export const login = (username, password) => {
   return (dispatch) => {
-    axios.get()
+    axios.get('/api/homeList.json')
     .then((res) => {
-      dispatch(getLogin())
+      const data = res.data.data;
+      if (data.username === username.value && data.password === password.value) {
+        dispatch(getLogin())
+      } else {
+        alert('Check your username and password!')
+      }
     })
     .catch(
-      alert('Fail to login')
+      (e) => {
+        alert('Fail to login' + e)
+      }
     )
   }
 }

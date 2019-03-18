@@ -9,7 +9,7 @@ import * as loginActionCreators  from '../../pages/login/store/actionCreators'
 class Header extends Component {
 
   getListArea() {
-    const { focused, list, page, mouseIn, totalPage, handleMouseEnter, handleMouseLeave, handleRefresh, loginOut } = this.props
+    const { focused, list, page, mouseIn, totalPage, handleMouseEnter, handleMouseLeave, handleRefresh } = this.props
     const newList = list.toJS()
     const pageList = []
 
