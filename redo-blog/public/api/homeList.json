@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "data": {
+    "articles": [
+      {
+        "id": 5,
+        "title": "Strong growth from China amid moderating visitor arrival growth",
+        "desc": "Official International Visitor Arrivals figures released today shows New Zealand tourism remains healthy with holiday visitor arrivals up 2.2 percent in January 2019. This growth is driven by holiday visitors from China, our most valuable visitor group which contributed around $1.7 billion of spend in New Zealand last year.",
+        "imgUrl": "https://www.tourismnewzealand.com/media/3812/9919-waimarino-adventure-park-andy-belcher.EU5LnA.jpg?width=500"
+      }, {
+        "id": 6,
+        "title": "New Zealand contains many stunning glaciers, most located near the Main Divide in the Southern Alps in the South Island",
+        "desc": "The Fox and Franz Josef Glaciers – some of New Zealand’s largest and most-visited – descend down from the Southern Alps and flow almost to sea level. Seeing ancient rivers of ice descending past emerald green rainforest is a sight you'll never forget.",
+        "imgUrl": "https://www.newzealand.com/assets/Tourism-NZ/West-Coast/8282212535/img-1536070328-2792-27723-p-2157AD1F-C7C2-32DC-A1F735BA2381CB07-2544003__FocalPointCropWzQ0MCwxMjgwLDc1LDUwLDc1LCJwbmciLDY1LDIuNV0.png"
+      }, {
+        "id": 7,
+        "title": "Multi-day group tours can be excellent value for money, and lots of fun too.",
+        "desc": "Whether you want to see the entire country, or just one region, group tour companies utilise a variety of popular itineraries. Generally group tours in New Zealand use coach transport, with a ferry between the North and South Islands.",
+        "imgUrl": "https://www.newzealand.com/assets/Tourism-NZ/Queenstown/8c44c07b12/img-1536885133-1372-19333-4E9B4CE5-F577-F0C6-1C39E9F99E37D2E2__FocalPointCropWzQ0MCwxMjgwLDQ3LDU3LDc1LCJqcGciLDY1LDIuNV0.jpg"
+      }, {
+        "id": 8,
+        "title": "Dark, clear skies; unique celestial features and otherworldly landscapes make stargazing in New Zealand a breathtakingly magical experience.",
+        "desc": "Recently, 4,300 square kilometres of New Zealand’s South Island was recognised as an International Dark Sky Reserve, the largest reserve of this type worldwide. Covering much of the Aoraki/Mount Cook Mackenzie region, the Dark Sky Reserve has been labelled as ‘one of the best stargazing sites on earth’.",
+        "imgUrl": "https://www.newzealand.com/assets/Tourism-NZ/Wairarapa/c99fae94ce/img-1536252489-4415-20093-92D4E5DA-A71D-BC7F-042EC01C0F1582BB__FocalPointCropWzQ0MCwxMjgwLDQ4LDY0LDc1LCJqcGciLDY1LDIuNV0.jpg"
+      }
+    ],
+    "username": "admin",
+    "password": "admin"
+  }
+}
