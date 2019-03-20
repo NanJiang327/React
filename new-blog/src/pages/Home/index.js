@@ -65,22 +65,25 @@ class Home extends Component {
                       style={{ width: '100%', marginBottom: '20px'}}
                     >
                       <Meta
-                        title={<h3><Link to={`/blog/${item.number}`}>{item.title}</Link></h3>}
+                        title={<h3><Link to={`/article/${item.number}`}>{item.title}</Link></h3>}
                         description= {
                           <Row>
                             <Row style={{display: 'flex'}}>
                               <Col style={{marginRight: '5px'}}>
-                                <Icon type='calendar' style={{ marginRight: '5px'}}/>
+                                <Icon type='calendar' style={{ fontSize: 15, marginRight: '5px'}}/>
+                                {item.created_at}
                               </Col>
                               <Col>
                                 <Icon type="tags-o"
-                                      style={{ fontSize: '20px', marginRight: '5px'}} 
+                                      style={{ fontSize: 15, marginRight: '5px'}} 
                                 />
                                 {
                                   item.labels && item.labels.length?(
                                       item.labels.map((vitem,vindex)=>{
                                           return(
-                                              <Tag style={{fontSize:16}} key={vindex} color={`#${vitem.color}`}>{vitem.name}</Tag>
+                                              <Link key={vindex} to={`/tagblog/${vitem.name}`}>
+                                                <Tag style={{fontSize:16}} color={`#${vitem.color}`}>{vitem.name}</Tag>
+                                              </Link>
                                           );
                                       })
                                   ):null

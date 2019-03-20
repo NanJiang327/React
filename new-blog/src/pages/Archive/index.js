@@ -27,7 +27,7 @@ class Archive extends Component {
                 posts && posts.length ? (
                   posts.map((item, index) => {
                     return (<Timeline.Item key={index}>
-                              <Link to={`/blog/${item.number}`}>
+                              <Link to={`/article/${item.number}`}>
                                 <span style={{marginRight: "50px"}}>{ item.title }</span>
                                 <span>{item.created_at}</span>
                               </Link>

@@ -41,7 +41,7 @@ export function TimesFun(timesData) {
     }
     let timesString = '';
 
-    timesString = dayDiff + 'day' + hours + 'hours' + minutes + 'min' + seconds+'sec';
+    timesString = dayDiff + ' day ' + hours + ' hours ' + minutes + ' min ' + seconds+' sec';
 
     return timesString
 }
