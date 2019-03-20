@@ -159,13 +159,13 @@ module.exports = {
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
           {
-            test: /\.scss$/,
+            test: /\.s?css$/,
             use: [
               require.resolve('style-loader'),
               {
                 loader: require.resolve('css-loader'),
                 options: {
-                  importLoaders: 1,
+                  importLoaders: 1
                 },
               },
               {
@@ -177,11 +177,11 @@ module.exports = {
                   plugins: () => [
                     require('postcss-flexbugs-fixes'),
                     autoprefixer({
-                      browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9', // React doesn't support IE8 anyway
+                      browserslist: [
+                        ">0.2%",
+                        "not dead",
+                        "not ie <= 11",
+                        "not op_mini all"
                       ],
                       flexbox: 'no-2009',
                     }),
@@ -189,13 +189,7 @@ module.exports = {
                 },
               },
               {
-                loader:require.resolve('sass-loader'),
-                options: {
-                  modules: false,
-                  // modifyVars: {
-                  //   "@primary-color": "#E85055"
-                  // }
-                }
+                loader: require.resolve('sass-loader')
               }
             ],
           },
@@ -223,11 +217,11 @@ module.exports = {
                   plugins: () => [
                     require('postcss-flexbugs-fixes'),
                     autoprefixer({
-                      browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9', // React doesn't support IE8 anyway
+                      browserslist: [
+                        ">0.2%",
+                        "not dead",
+                        "not ie <= 11",
+                        "not op_mini all"
                       ],
                       flexbox: 'no-2009',
                     }),
