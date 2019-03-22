@@ -1,9 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react'
+import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import Router from './Router.js';
 
-import store from './store/configureStore'
+
+// require('./static/iconfont.js');
+
+import configureStore from './store/configureStore.js'
+import 'antd/dist/antd.css'
+import './styles/main.scss'
+
 
 const store = configureStore();
 

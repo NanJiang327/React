@@ -1,16 +1,14 @@
 import 'babel-polyfill';
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, Switch, HashRouter} from 'react-router-dom';
 import asyncComponent from './AsyncComponent.js';
 
-import Header from './components/Header'
-import Footer from './components/Footer'
+const Header = asyncComponent(() => import('./components/Header'))
+const Footer = asyncComponent(() => import('./components/Footer'))
 
-import NowShowing from './pages/NowShowing'
+const NowShowing = asyncComponent(() => import('./pages/NowShowing'))
 
-import './styles/main.scss'
-import 'normalize.css'
-import 'antd/dist/antd.css'
+// import NowShowing from './pages/NowShowing'
 
 
 export default class Router extends Component {
@@ -20,7 +18,7 @@ export default class Router extends Component {
           <Header />
           <div className="content">
             <Switch>
-              <Router exact path='/' component={NowShowing} />
+              <Route exact path='/' component={NowShowing} />
             </Switch>
           </div>
           <Footer />
