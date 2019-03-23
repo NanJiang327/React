@@ -2,15 +2,15 @@ import { saveState } from '../utils/storage'
 import * as constants from './constants'
 
 
-const initialState = {
+const defaultState = {
   isFetching: false,
-  updateAt: new Date(0) - 0,
   nowShowingArr: [],
   upcomingArr: [],
-  type: 'now_playing'
+  type: 'now_playing',
+  language: 'en-AU'
 }
 
-export default (state = initialState, action) => {
+export default (state = defaultState, action) => {
   switch(action.type) {
     case constants.FETCH_STARTED:
       return Object.assign({}, state,  {
@@ -22,11 +22,8 @@ export default (state = initialState, action) => {
         isFetching: false,
         nowShowingArr,
         updatedAt,
-        type: 'now_showing'
+        type: 'now_playing'
       })
-      saveState({
-        nowShowing: newState
-      });
       return newState
     }
     case constants.FETCH_UPCOMING_COMPLETED: {
@@ -37,9 +34,6 @@ export default (state = initialState, action) => {
         updatedAt,
         type: 'upcoming'
       })
-      saveState({
-        upcoming: newState
-      });
       return newState
     }
     case constants.FETCH_FAILED:
@@ -49,6 +43,13 @@ export default (state = initialState, action) => {
     case constants.CHANGE_TYPE: 
       return Object.assign({}, state, {
         type: action.fetchingType
+      })
+    case constants.CHANGE_LANG:
+      saveState({
+        language: action.language
+      })
+      return Object.assign({}, state, {
+        language: action.language
       })
     default: 
       return state
