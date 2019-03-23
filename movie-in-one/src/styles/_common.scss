@@ -8,13 +8,15 @@
 .douban-link {
   $sz: 24px;
   border: 1px solid #fff;
+  background-color: #fff;
   border-radius: 4px;
   padding: 3px;
-  margin-top: 5px;
+  margin-top: 10px;
   height: $sz;
   width: $sz;
   transition: border-color 0.5s;
-  .douban {
+  .movie {
+    vertical-align: top;
     transition: color 0.5s;
     color: #fff;
     height: 100%;
