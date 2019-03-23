@@ -6,7 +6,7 @@ import IconFont from './IconFont'
 
 import config from '../utils/config'
 
-const  Movie = ({data, appBackground}) => {
+const  Movie = ({data, appBackground, language}) => {
   if (!data.title || !data.backdrop_path || !data.poster_path) return null
 
   let title = data.title === data.original_title ? (
@@ -24,14 +24,28 @@ const  Movie = ({data, appBackground}) => {
       </div>
   )
   let backgroundImage = `url(${config.tmdb.backdropUrl + data.backdrop_path})`
-
-  let genres = config.tmdb.genres.filter(item => {
+  let genresType = language === 'zh-CN' ? config.tmdb.genres_cn : config.tmdb.genres_en
+  let genres = genresType.filter(item => {
     return data.genre_ids.indexOf(item.id) >= 0
   }).map(
     item => {
       return item.name
     }
   ).join(', ')
+
+  let langOptions = language === 'zh-CN' ? 
+    {
+      overview: '剧情简介',
+      relase: '上映时间',
+      genres: '类别',
+      no_overviwe: '暂无简介'
+    } :
+    {
+      overview: 'Overview',
+      relase: 'Relase date',
+      genres: 'Genres',
+      no_overviwe: 'No overview'
+    }
 
   let heroClassName = 'subject-hero small';
 
@@ -45,18 +59,19 @@ const  Movie = ({data, appBackground}) => {
           <Link to={'/detail/' + data.id}>
             <img src={config.tmdb.bgUrl + data.poster_path} alt={data.title} />
           </Link>
-          <div className="subject-hero-info">
+          <div className="subject-hero-info" >
             {title}
-            <Rate allowHalf defaultValue={(data.vote_average / 2)} disabled/>
+            {
+              data.vote_average !== 0 ? <Rate allowHalf defaultValue={(data.vote_average / 2)} disabled/>
+               : <div style={{fontSize: '20px', color: '#fadb14', fontWeight: 'blod'}}>No rating</div>
+            }
             <div className="wrap text">
-              <div className="text">
-                <span>Overview:</span> {data.overview}
-              </div>
+              <span>{langOptions.overview}: </span> {data.overview ? data.overview.trim() : langOptions.no_overviwe}
             </div>
-            <div className='text'><span>Relase data: </span>{(data.release_date).replace(/-/g, '/')}</div>
-            <div className='text'><span>Genres: </span> {genres}</div>
+            <div className='text'><span>{langOptions.relase}: </span>{(data.release_date).replace(/-/g, '/')}</div>
+            <div className='text'><span>{langOptions.genres}: </span> {genres}</div>
               <div className="douban-link">
-                <a href={'https://www.themoviedb.org/movie/' + data.id} target="_blank">
+                <a href={'https://www.themoviedb.org/movie/' + data.id} target="_blank" rel="noopener noreferrer">
                   <IconFont name={'movie'} />
                 </a>
               </div>
@@ -71,8 +86,8 @@ const  Movie = ({data, appBackground}) => {
 
 Movie.propTypes = {
   data: PropTypes.object,
-  inlineTitle: PropTypes.bool,
-  appBg: PropTypes.bool
+  lang: PropTypes.string,
+  appBg: PropTypes.bool,
 }
 
 export default Movie
