@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import MovieList from '../../components/MovieList';
@@ -10,24 +9,31 @@ import  { fetchData } from '../../store/action'
 
 class NowShowing extends Component {
   componentDidMount() {
-    this.props.fetchNowShowing();
+    this.props.fetchNowShowing(this.props.language);
   }
 
   render (){
-    const { fetchNowShowing, fetchUpcoming, type, isFetching, nowShowingArr, upcomingArr} = this.props
+    const { fetchNowShowing, fetchUpcoming, type, isFetching, nowShowingArr, upcomingArr, language} = this.props
     if (isFetching) return <Loading />
-  
+    const lang = language === 'en-AU' ? {
+      showing: 'Now Playing',
+      upcoming: 'Upcoming'
+    } : 
+    {
+      showing: '正在上映',
+      upcoming: '即将上映'
+    }
     return (
       <div>
         <div className="intheater title">
-          <button onClick={() => fetchNowShowing(nowShowingArr)} className={type === 'now_showing' ? 'active' :''}>Now Showing </button>
+          <button onClick={() => fetchNowShowing(language)} className={type === 'now_playing' ? 'active' :''}>{lang.showing} </button>
           <span> | </span>
-          <button onClick={() => fetchUpcoming(upcomingArr)} className={type === 'upcoming' ? 'active' :''}> Upcoming</button>
+          <button onClick={() => fetchUpcoming(language)} className={type === 'upcoming' ? 'active' :''}> {lang.upcoming}</button>
         </div>
         {
-          type === 'now_showing' ?
-            <MovieList results={nowShowingArr} />
-            : <MovieList results={upcomingArr} />
+          type === 'now_playing' ?
+            <MovieList results={nowShowingArr} language={language} />
+            : <MovieList results={upcomingArr} language={language} />
         }
       </div>
     )
@@ -40,16 +46,17 @@ function mapStateToProps(state) {
     type: state.type,
     nowShowingArr: state.nowShowingArr,
     upcomingArr: state.upcomingArr,
+    language: state.language
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchNowShowing: (nowShowingArr) => {
-      dispatch(fetchData('now_showing', nowShowingArr))
+    fetchNowShowing: (language) => {
+      dispatch(fetchData('now_playing', language))
     },
-    fetchUpcoming: (upcomingArr) => {
-      dispatch(fetchData('upcoming', upcomingArr))
+    fetchUpcoming: (language) => {
+      dispatch(fetchData('upcoming', language))
     },
   };
 }
