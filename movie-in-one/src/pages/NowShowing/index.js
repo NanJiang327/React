@@ -26,8 +26,8 @@ class NowShowing extends Component {
         </div>
         {
           type === 'now_showing' ?
-            <MovieList results={nowShowingArr} inlineTitle />
-            : <MovieList results={upcomingArr} inlineTitle />
+            <MovieList results={nowShowingArr} />
+            : <MovieList results={upcomingArr} />
         }
       </div>
     )

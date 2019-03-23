@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import Movie from './Movie';
 
-const MovieList = ({ results, ...other }) => {
+const MovieList = ({ results }) => {
   if (!results) return <div></div>
   let lists = results.map((movie) => {
     return (
       <li key={movie.id}>
-        <Movie data={movie} {...other} />
+        <Movie data={movie} />
       </li>
     )
   })

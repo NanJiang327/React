@@ -6,18 +6,22 @@ import IconFont from './IconFont'
 
 import config from '../utils/config'
 
-const  Movie = ({data, inlineTitle, appBackground}) => {
+const  Movie = ({data, appBackground}) => {
   if (!data.title || !data.backdrop_path || !data.poster_path) return null
 
   let title = data.title === data.original_title ? (
-    <div className="subject-title">
-      <div className="title-1">{data.title}</div>
-    </div>
+      <div className="subject-title">
+       <Link to={'/detail/' + data.id}>
+        <div className="title-1">{data.title}</div>
+       </Link>
+      </div>
   ) : (
-    <div className="subject-title">
-      <div className="title-1">{data.title}</div>
-      <div className="title-2">{data.original_title}</div>
-    </div>
+      <div className="subject-title">
+        <Link to={'/detail/' + data.id}>
+          <div className="title-1">{data.title}</div>
+          <div className="title-2">{data.original_title}</div> 
+        </Link>
+      </div>
   )
   let backgroundImage = `url(${config.tmdb.backdropUrl + data.backdrop_path})`
 
@@ -29,25 +33,20 @@ const  Movie = ({data, inlineTitle, appBackground}) => {
     }
   ).join(', ')
 
-  let subjectTitle = null;
-  let subjectTitleInline = null;
-  inlineTitle ? (subjectTitleInline = title) : (subjectTitle = title);
-
-  let heroClassName = inlineTitle ? 'subject-hero' : 'subject-hero small';
+  let heroClassName = 'subject-hero small';
 
   let bgClassName = appBackground ? 'app-bg' : 'subject-hero-bg';
 
   return (
     <section className="subject-header" >
-      {subjectTitle}
+     
       <section className={heroClassName}>
         <div className="subject-hero-container">
           <Link to={'/detail/' + data.id}>
             <img src={config.tmdb.bgUrl + data.poster_path} alt={data.title} />
           </Link>
           <div className="subject-hero-info">
-            {subjectTitleInline}
-            {/* <Progress type="circle" percent={(data.vote_average * 10)} /> */}
+            {title}
             <Rate allowHalf defaultValue={(data.vote_average / 2)} disabled/>
             <div className="wrap text">
               <div className="text">

@@ -29,6 +29,13 @@ $subject-height-small: 520px;
   height: 100%;
   .subject-title {
     text-align: left;
+    .title-1 {
+      font-weight: bold;
+      color: #59cafa;
+      &:hover {
+        color:  darken(#59cafa, 40%);
+      }
+    }
   }
   img {
     width: 270px;
