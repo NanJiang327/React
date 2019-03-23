@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className="header">
       <Link to='/' >
-        <IconFont name={'dog2'} className='movie-title'/>
+        <IconFont name={'star'} className='movie-title'/>
       </Link>
       <div className="search-wrapper">
         <Search />
