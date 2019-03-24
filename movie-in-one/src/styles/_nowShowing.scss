@@ -1,18 +1,6 @@
 $subject-height: 600px; // TODO
 $subject-height-small: 520px;
 
-.subject-title {
-  text-align: center;
-  font-weight: 200;
-  padding: 10px 0;
-  .title-1 {
-    font-size: 2em;
-  }
-  .title-2 {
-    font-size: 1.5em;
-  }
-}
-
 .subject-hero {
   height: $subject-height;
   position: relative;
@@ -28,13 +16,20 @@ $subject-height-small: 520px;
   align-items: center;
   height: 100%;
   .subject-title {
-    text-align: left;
+    font-weight: 200;
+    padding: 10px 0 5px 0;
+    margin-bottom: 0;
     .title-1 {
+      font-size: 2em;
       font-weight: bold;
-      color: #59cafa;
+      color: $lightBlue;
       &:hover {
         color:  darken(#59cafa, 40%);
       }
+    }
+    .title-2 {
+      font-size: 1.5em;
+      color: $lightBlue;
     }
   }
   img {
@@ -46,6 +41,7 @@ $subject-height-small: 520px;
   }
   span {
     font-weight: bold;
+    margin-right: 5px;
   }
 }
 
@@ -64,10 +60,16 @@ $subject-height-small: 520px;
 .subject-hero-info {
   vertical-align: top;
   padding-left: 20px;
-  flex-basis: 400px;
+  flex-basis: 410px;
   color: #fff;
+  .wrap {
+    text-align: left;
+    position: relative;
+    line-height: 18px;
+    max-height: 178px;
+    overflow: hidden;
+  }
 }
-
 .subject-content {
   width: 700px;
   margin: 0 auto;

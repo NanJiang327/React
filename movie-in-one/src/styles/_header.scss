@@ -1,7 +1,12 @@
 .header {
   text-align: center;
   padding: 2em 0;
-
+  position: relative;
+  .language {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
   
   .star {
     width: 240px;
@@ -13,10 +18,9 @@
     display: block;
     width: 240px;
     margin: 0 auto;
-    transition: 1s;
 
     &:hover {
-      filter: grayscale(1);
+      filter: grayscale(0.6);
     }
   }
 }

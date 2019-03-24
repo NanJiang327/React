@@ -41,14 +41,11 @@ ul {
   list-style: none;
 }
 
-a {
-  $c: #59cafa;
-  text-decoration: none;
-  color: $c;
-  &:hover {
-    color: darken($c, 40%);
-  }
-}
+// a {
+//   $c: #59cafa;
+//   text-decoration: none;
+//   color: $c;
+// }
 
 .icon {
   width: 32px;
