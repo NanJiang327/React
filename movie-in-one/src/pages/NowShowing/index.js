@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import MovieList from '../../components/MovieList';
 import Loading from '../../components/Loading';
 import  { fetchData } from '../../store/action'
+import { BackTop } from 'antd'
 
 
 
@@ -35,6 +36,9 @@ class NowShowing extends Component {
             <MovieList results={nowShowingArr} language={language} />
             : <MovieList results={upcomingArr} language={language} />
         }
+        <BackTop>
+          <div className="ant-back-top-inner">UP</div>
+        </BackTop>
       </div>
     )
   }

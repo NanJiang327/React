@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { Radio } from 'antd';
 import { connect } from 'react-redux';
 import { changeLang } from '../store/action'
+import { BackTop } from 'antd'
 
 const Header = (props) => {
   return (
