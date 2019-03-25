@@ -1,0 +1,46 @@
+.subject-casts {
+  width: 94%;
+  min-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  .wrap {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    a {
+      display: block;
+    }
+
+    img {
+      max-width: 200px;
+    }
+
+    margin: 10px 20px;
+  }
+  .casts-title {
+    font-size: 2em;
+    font-weight: 700;
+    padding: 10px 0;
+    padding-bottom: 35px;
+    .ant-divider-inner-text{
+      color: #fff;
+    }
+  }
+  .subject-casts-flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .wrap {
+      .cast-name {
+        color: #fff;
+        font-size: 16px;
+        &:hover {
+          color: darken($limeGreen, 1%);
+        }
+      }
+    }
+  }
+
+}

@@ -21,14 +21,12 @@ footer {
   }
   .github {
     font-size: 30px;
-    color: #777;
+    color: #666;
     width: 24px;
     height: 24px;
   }
-  &:hover {
-    .red {
+  .red {
       color: tomato;
-    }
   }
 }
 

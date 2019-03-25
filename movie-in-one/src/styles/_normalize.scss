@@ -94,9 +94,12 @@ a {
  * active/hover state.
  */
 
+
 a:active,
-a:hover {
+a:hover,
+a:visited {
   outline: 0;
+  text-decoration: none;
 }
 
 /* Text-level semantics

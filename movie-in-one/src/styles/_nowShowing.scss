@@ -22,9 +22,9 @@ $subject-height-small: 520px;
     .title-1 {
       font-size: 2em;
       font-weight: bold;
-      color: $lightBlue;
+      color: #fff;
       &:hover {
-        color:  darken($lightBlue, 40%);
+        color:  darken($lightBlue, 1%);
       }
     }
     .title-2 {
@@ -100,15 +100,15 @@ $subject-height-small: 520px;
   bottom: 100px;
   .ant-back-top-inner {
     height: 40px;
-    width: 50px;
+    width: 60px;
     line-height: 40px;
     border-radius: 4px;
-    background-color: $lightBlue;
+    background-color:$limeGreen;
     color: #fff;
     text-align: center;
     font-size: 20px;
     &:hover {
-      background-color: darken($lightBlue, 20%);
+      background-color: darken($limeGreen, 5%);
     }
   }
 }
