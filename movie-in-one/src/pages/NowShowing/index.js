@@ -13,6 +13,15 @@ class NowShowing extends Component {
     this.props.fetchNowShowing(this.props.language);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.language === nextProps.language) return
+    if (nextProps.type === 'now_playing') {
+      this.props.fetchNowShowing(nextProps.language);
+    } else {
+      this.props.fetchUpcoming(nextProps.language);
+    }
+  }
+
   render (){
     const { fetchNowShowing, fetchUpcoming, type, isFetching, nowShowingArr, upcomingArr, language} = this.props
     if (isFetching) return <Loading />
