@@ -17,50 +17,23 @@ const getUpcomingData = (res) => ({
   }
 })
 
-const change = (language) => ({
+export const changeLang = (language) => ({
   type: constants.CHANGE_LANG,
   language
 })
 
-export function changeLang(language) {
-  return (dispatch, getState) => {
-    dispatch(change(language))
-    const api = config.tmdb.basicUrl + getState().type +'?api_key=' + config.tmdb.apiKey + '&language='+ language +'&page=1&region=AU'
-    const type = getState().type === 'now_playing' 
-    axios.get(api)
-    .then(res => {
-      const results = res.data.results;
-      if (type) {
-        return dispatch(getNowShowingData(results))
-      } else {
-        return dispatch(getUpcomingData(results))
-      }
-    })
-    .catch(err => {
-      return dispatch({
-        type: constants.FETCH_FAILED,
-        error: true,
-        payload: err
-      });
-    })
-  }
-}
-
 export function fetchData(fetchingType, language) {
   return (dispatch, getState) => {
-    // if we last updated in one hour
-    // dispatch no action
-    // const updatedAt = getState().inTheaters.updatedAt;
-    // if (new Date() - updatedAt < oneHour) {
-    //   return Promise.resolve(undefined);
-    // }
-    
+
+
     if (fetchingType !== getState().type) {
        dispatch({
         type: constants.CHANGE_TYPE,
         fetchingType
       })
     }
+    
+    if (getState().nowShowingArr && getState().upcomingArr) return
 
     dispatch({
       type: constants.FETCH_STARTED
