@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import axios from 'axios'
 import config from '../../utils/config'
 import MovieList from '../../components/MovieList'
+import { BackTop } from 'antd'
 
 class SearchResult extends Component {
   constructor() {
@@ -49,6 +50,9 @@ class SearchResult extends Component {
           }
         </div>
         <MovieList results={this.state.searchResult} language={language}/>
+        <BackTop>
+          <div className="ant-back-top-inner">UP</div>
+        </BackTop>
       </div>
     )
   }

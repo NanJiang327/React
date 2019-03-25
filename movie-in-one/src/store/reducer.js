@@ -1,7 +1,6 @@
 import { saveState } from '../utils/storage'
 import * as constants from './constants'
 
-
 const defaultState = {
   isFetching: false,
   nowShowingArr: [],

@@ -4,6 +4,7 @@ const config = {
   },
   tmdb: {
     basicUrl: 'https://api.themoviedb.org/3/movie/',
+    castUrl: 'https://api.themoviedb.org/3/person/',
     searchUrl: 'https://api.themoviedb.org/3/search/movie',
     backdropUrl: 'https://image.tmdb.org/t/p/w1400_and_h450_face',
     bgUrl: 'https://image.tmdb.org/t/p/original/',

@@ -83,32 +83,4 @@ $subject-height-small: 520px;
   }
 }
 
-.rating {
-  display: flex;
-  align-items: center;
-  .average {
-    font-size: 1.6em;
-  }
-  .star {
-    color: #ffc107;
-    margin-right: 5px;
-  }
-}
 
-
-.ant-back-top {
-  bottom: 100px;
-  .ant-back-top-inner {
-    height: 40px;
-    width: 60px;
-    line-height: 40px;
-    border-radius: 4px;
-    background-color:$limeGreen;
-    color: #fff;
-    text-align: center;
-    font-size: 20px;
-    &:hover {
-      background-color: darken($limeGreen, 5%);
-    }
-  }
-}

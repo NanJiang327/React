@@ -7,16 +7,16 @@ import config from '../utils/config';
 const Cast = ({ profile_path, name, id}) => {
   let image = <img src={config.tmdb.bgUrl + profile_path} alt=""/> 
 
-  return (
+  return profile_path ? (
     <div className="wrap">
-      <Link to={'//' + id}>
+      <Link to={'/castdetail/' + id}>
         {image}
         <div className='cast-name'>
           {name}
         </div>
       </Link>
     </div>
-  )
+  ) : null
 }
 
 Cast.propTypes = {

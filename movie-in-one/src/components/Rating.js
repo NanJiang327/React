@@ -1,13 +1,12 @@
 import React from 'react';
-
 import IconFont from './IconFont'
 
-const Rating = ({ rating, style }) => {
+const Rating = ({ rating }) => {
   return (
-    <div className="rating" style={style}>
-      <Iconfont name={'star'} />
+    <div className="rating" >
+      <IconFont name={'star'} />
       <span className="average">
-        {rating.average}
+        {rating}
       </span>
       <span className="max">/10</span>
     </div>

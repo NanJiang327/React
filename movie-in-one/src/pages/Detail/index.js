@@ -6,7 +6,7 @@ import Movie from '../../components/Movie'
 import Loading from '../../components/Loading'
 import Cast from '../../components/Cast'
 import config from '../../utils/config'
-import { Divider } from 'antd'
+import { Divider, BackTop } from 'antd'
 
 class Detail extends Component {
 
@@ -75,9 +75,14 @@ class Detail extends Component {
             }  
           </div>
           <p>
-            {this.state.overview}
+            {
+              this.state.overview ? this.state.overview : this.props.language === 'zh-CN' ? '暂无简介' : 'No overview'
+            }
           </p>
         </section>
+        <BackTop>
+          <div className="ant-back-top-inner">UP</div>
+        </BackTop>
       </div>
     )
   }

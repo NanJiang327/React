@@ -1,6 +1,5 @@
 import axios from 'axios'
 import * as constants from './constants'
-
 import config from '../utils/config'
 
 const getNowShowingData = (res) => ({
@@ -24,8 +23,6 @@ export const changeLang = (language) => ({
 
 export function fetchData(fetchingType, language) {
   return (dispatch, getState) => {
-
-
     if (fetchingType !== getState().type) {
        dispatch({
         type: constants.CHANGE_TYPE,
@@ -33,13 +30,11 @@ export function fetchData(fetchingType, language) {
       })
     }
     
-    if (getState().nowShowingArr && getState().upcomingArr) return
-
     dispatch({
       type: constants.FETCH_STARTED
     });
-    const api = config.tmdb.basicUrl + fetchingType +'?api_key=' + config.tmdb.apiKey + '&language='+ language +'&page=1&region=AU'
 
+    const api = config.tmdb.basicUrl + fetchingType +'?api_key=' + config.tmdb.apiKey + '&language='+ language +'&page=1&region=AU'
     const type = fetchingType === 'now_playing' 
 
     axios.get(api)
