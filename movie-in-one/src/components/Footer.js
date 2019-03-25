@@ -7,7 +7,7 @@ const Footer = () => {
       <p>
         <span>Made</span>
         <span className="red"> by </span>
-        <span> Aaron @ 2019</span>
+        <span> Aaron Jiang @ 2019</span>
       </p>
       <a href="https://github.com/NanJiang327">
         <Icon type="github" className='github'/>

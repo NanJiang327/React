@@ -23,10 +23,10 @@ const  Movie = ({data, appBackground, language}) => {
         </Link>
       </div>
   )
-  let backgroundImage = `url(${config.tmdb.backdropUrl + data.backdrop_path})`
   let genresType = language === 'zh-CN' ? config.tmdb.genres_cn : config.tmdb.genres_en
   let genres = genresType.filter(item => {
-    return data.genre_ids.indexOf(item.id) >= 0
+    return data.genre_ids ? data.genre_ids.indexOf(item.id) >= 0
+            : data.genres.indexOf(item.id) >= 0
   }).map(
     item => {
       return item.name
@@ -50,6 +50,7 @@ const  Movie = ({data, appBackground, language}) => {
   let heroClassName = 'subject-hero small';
 
   let bgClassName = appBackground ? 'app-bg' : 'subject-hero-bg';
+  let backgroundImage = appBackground ? `url(${config.tmdb.bgUrl + data.poster_path})` : `url(${config.tmdb.bgUrl + data.backdrop_path})`
 
   return (
     <section className="subject-header" >

@@ -21,8 +21,8 @@ class Search extends Component {
     const api = config.tmdb.searchUrl + '?query='+ value +'&api_key=' + config.tmdb.apiKey + '&language=' + this.props.language +'&page=1'
     if (!value) return this.setState({ showSearchMenu: false })
     this.setState({ showSearchMenu: true })
-    axios.get(api).
-      then((res) => {
+    axios.get(api)
+      .then((res) => {
         this.setState({ searchResult: res.data.results})
       }).catch(err => {
         console.log(err)
@@ -31,9 +31,10 @@ class Search extends Component {
 
   onKeyDown = e => {
     if (e.keyCode === 13) {
-      let path = '/search?q=' + this.refs.input.value;
+      let path = '/search/' + this.refs.input.value;
       this.refs.input.value = '';
       this.props.history.push(path);
+      this.setState({ searchResult: [], showSearchMenu: false})
     }
   };
 
