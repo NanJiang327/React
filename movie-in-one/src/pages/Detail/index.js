@@ -5,6 +5,7 @@ import axios from 'axios'
 import Movie from '../../components/Movie'
 import Loading from '../../components/Loading'
 import Cast from '../../components/Cast'
+import Review from '../../components/Review'
 import config from '../../utils/config'
 import { Divider, BackTop } from 'antd'
 
@@ -42,6 +43,7 @@ class Detail extends Component {
           casts: castRes.data.cast,
           ready: true
         })
+        console.log(movieRes.data)
       }))
       .catch((err) => {
         console.log(err)
@@ -79,6 +81,9 @@ class Detail extends Component {
               this.state.overview ? this.state.overview : this.props.language === 'zh-CN' ? '暂无简介' : 'No overview'
             }
           </p>
+        </section>
+        <section className="subject-reviews">
+          <Review movieId={this.state.movie.id} />
         </section>
         <BackTop>
           <div className="ant-back-top-inner">UP</div>
