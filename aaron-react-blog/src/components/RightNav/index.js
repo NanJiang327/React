@@ -57,6 +57,10 @@ class RightNav extends Component {
       window.open('https://github.com/NanJiang327');
   }
 
+  toResume = () => {
+      window.open('https://nanjiang327.github.io/MyCV/Aaron_Jiang_Resume.pdf')
+  }
+
   render() {
         const { taglist, sysTime} = this.state;
         const { posts } = this.props;
@@ -88,7 +92,7 @@ class RightNav extends Component {
                     <div className="icon-git-wrp">
                     <div className="call">
                         <Tooltip title="Resume">
-                            <Icon type="solution" style={{ fontSize: 30 }} />
+                            <Icon type="solution" style={{ fontSize: 30 }} onClick={()=>this.toResume()} />
                         </Tooltip>
                         <Tooltip title="github">
                             <Icon type="github" style={{fontSize:30}} onClick={()=>this.toGitIndex()} />

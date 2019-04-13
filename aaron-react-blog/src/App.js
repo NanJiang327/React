@@ -57,7 +57,7 @@ class App extends Component {
         <div className='web' >
           <div id='to-header'></div>
             <Header />
-            <Music />
+            {/* <Music /> */}
               <Row className='bg'>
                 {/* 内容区域 */}
                 <Row style={{marginTop:20}}>
