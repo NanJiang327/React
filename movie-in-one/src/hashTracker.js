@@ -3,7 +3,7 @@ import ReactGA from 'react-ga';
 
 export default function hashTracker(WrappedComponent, options = {}) {
   const trackPage = (page) => {
-    ReactGA.initialize('UA-138612826-1')
+    // ReactGA.initialize('UA-138612826-1')
     ReactGA.set({
       page,
       ...options

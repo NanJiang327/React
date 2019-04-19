@@ -11,6 +11,7 @@ const SearchResult = asyncComponent(() => import('./pages/SearchResult'))
 const Detail = asyncComponent(() => import('./pages/Detail'))
 const CastDetail = asyncComponent(() => import('./pages/CastDetail'))
 const Login = asyncComponent(() => import('./pages/Login'))
+const Registration = asyncComponent(() => import('./pages/Register'))
 
 
 
@@ -26,6 +27,7 @@ export default class Router extends Component {
               <Route path='/detail/:id' component={hashTracker(Detail)} />
               <Route path='/castdetail/:id' component={hashTracker(CastDetail)} />
               <Route exact path='/login' component={hashTracker(Login)} />
+              <Route exact path='/register' component={hashTracker(Registration)} />
             </Switch>
           </div>
           <Footer />

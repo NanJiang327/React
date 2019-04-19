@@ -1,17 +1,12 @@
-.login-form {
+.register-form {
   margin: 0 auto;
   max-width: 400px;
   color: $midGrey;
   background-color: rgba(255, 255, 255, 0.1);
   padding: 20px;
   border-radius: 10px;
-  .login-form-forgot {
-    float: right;
-  }
-  .login-form-button {
-    width: 100%;
-  }
-  .label {
-    color: $midGrey;
-  }
+}
+
+.register-form-button {
+  width: 100%;
 }
